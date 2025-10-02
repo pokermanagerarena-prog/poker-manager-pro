@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poker Tournament Manager PRO+</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom scrollbar for a more integrated look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1a202c; /* bg-gray-800 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4a5568; /* bg-gray-600 */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #718096; /* bg-gray-500 */
+      }
+      @keyframes ticker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); } /* Move by half since content is doubled */
+      }
+      .ticker-animation {
+        animation: ticker linear infinite;
+        animation-duration: var(--ticker-duration, 40s);
+      }
+      
+      /* ---- UX/UI Animations ---- */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      @keyframes flash-bg {
+        0% { background-color: rgba(59, 130, 246, 0); }
+        50% { background-color: rgba(59, 130, 246, 0.2); }
+        100% { background-color: rgba(59, 130, 246, 0); }
+      }
+      .flash-bg {
+        animation: flash-bg 1s ease-out;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .spinner {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        border: 2px solid currentColor;
+        border-right-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      /* --- End Animations --- */
+
+      /* Print styles */
+      @media print {
+        body {
+          background-color: white !important;
+        }
+        #app-main {
+          display: none !important;
+        }
+        #printable-area {
+          display: block !important;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.8.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "qrcode": "https://esm.sh/qrcode@^1.5.3",
+    "html5-qrcode": "https://esm.sh/html5-qrcode@^2.3.8",
+    "jsbarcode": "https://esm.sh/jsbarcode@3.11.6",
+    "@google/genai": "https://esm.sh/@google/genai@^1.14.0",
+    "react-window": "https://esm.sh/react-window@^1.8.10",
+    "@types/react-window": "https://esm.sh/@types/react-window@^1.8.8",
+    "chart.js": "https://esm.sh/chart.js@^4.4.3",
+    "react-chartjs-2": "https://esm.sh/react-chartjs-2@^5.2.0",
+    "date-fns": "https://esm.sh/date-fns@^3.6.0",
+    "chartjs-adapter-date-fns": "https://esm.sh/chartjs-adapter-date-fns@^3.0.0",
+    "dexie": "https://esm.sh/dexie@4.0.1",
+    "dexie/": "https://esm.sh/dexie@4.0.1/",
+    "dexie-react-hooks": "https://esm.sh/dexie-react-hooks@1.1.7?deps=dexie@4.0.1",
+    "peerjs": "https://esm.sh/peerjs@^1.5.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-900 text-gray-200 antialiased">
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
